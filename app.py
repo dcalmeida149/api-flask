@@ -14,7 +14,6 @@ def create_my_data(item):
     allowed_columns = {'field1', 'field2'}
     return MyData(**{key: item[key] for key in item if key in allowed_columns})
 
-
 @app.route('/upload', methods=['POST'])
 def upload_data():
     token = request.headers.get('Authorization')
@@ -44,12 +43,15 @@ def upload_data():
     else:
         return jsonify({"message": "Request body must be JSON"}), 400
 
-# Modelo do JSON que deve ser enviado:
+# Example curl command to test this endpoint:
+# curl -X POST http://localhost:5000/upload -H "Content-Type: application/json" -H "Authorization: <token>" -H "X-User: <base64 encoded user>" -d @data.json
+
+# JSON model that should be sent:
 # [
 #     {"field1": "value1_1", "field2": "value2_1"},
 #     {"field1": "value1_2", "field2": "value2_2"}
 # ]
-# headers necessários:
+# necessary headers:
 # - Authorization: <token>
 # - Content-Type: application/json
 # - X-User: <base64 encoded user>
