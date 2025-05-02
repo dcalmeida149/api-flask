@@ -44,6 +44,15 @@ def upload_data():
     else:
         return jsonify({"message": "Request body must be JSON"}), 400
 
+# Modelo do JSON que deve ser enviado:
+# [
+#     {"field1": "value1_1", "field2": "value2_1"},
+#     {"field1": "value1_2", "field2": "value2_2"}
+# ]
+# headers necessários:
+# - Authorization: <token>
+# - Content-Type: application/json
+# - X-User: <base64 encoded user>
 
 if __name__ == '__main__':
     with app.app_context():
