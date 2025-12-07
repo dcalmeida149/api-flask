@@ -90,9 +90,11 @@ celerybeat-schedule
 .env
 
 # virtualenv
-# Note: Keeping venv/ in the project
-# virtualenv
-# venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
 
 # Spyder project settings
 .spyderproject
@@ -118,3 +120,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 secrets.json
+
+# SQLite database files
+*.db
